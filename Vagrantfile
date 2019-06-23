@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
 #   trigger.run = { path:"subscription-manager register --username <username> --password <password> --auto-attach"}
 # end
 
-  config.vm.define "pythonRH7" do |pythonMSVCRH7|
+  config.vm.define "pythonRH7" do |pythonRH7|
     pythonRH7.vm.box = "RH7.5_baserepo"
     pythonRH7.vm.hostname = "pythonRH7"
     pythonRH7.vm.network "private_network", ip: "192.168.60.147"
