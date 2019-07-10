@@ -8,14 +8,14 @@
   become_method: sudo
 
 # COMMON for Research Environment
-  roles:
+# roles:
 #   - {role: iptables, when: "iptables_config"}
 #   - {role: common, when: "install_glusterfs"}
 #   - {role: epel, when: "use_epel and not 'production' in group_names"}
-    - emacs
-    - jdk
-    - odbc
-    - postgresql-client
+#   - emacs
+#   - jdk
+#   - odbc
+#   - postgresql-client
 # post_tasks:
 #   - name: research eod symlinks
 #     file:
@@ -89,7 +89,7 @@
       shell:  yum -y localinstall /tmp/epel*rpm
 
   roles:
-    - umask
+#   - umask
     - emacs
     - jdk
     - odbc
