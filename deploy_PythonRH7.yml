@@ -96,6 +96,29 @@
     - postgresql-client
 #   - devtools7
 
+# hosts: research_python
+# become: yes
+# become_method: sudo
+# roles:
+#   - devtools
+#   - devtools6
+#   - {role: python, when: "custom_repo"}
+#   - {role: python-build, when: "not custom_repo"}
+#   - {role: python3, when: "custom_repo"}
+#   - {role: python3-build, when: "not custom_repo"}
+#   - {role: python-libs}
+#   - postgresql-client
+#   - r-core
+#   - r-libs
+#   - r-studio-desktop
+#   - r-studio-server
+#   - r-studio-server-config
+#   - pycharm
+#   - gocd
+#   - stattransfer
+
+
+
   post_tasks:
     - name: register mime types
       shell: update-mime-database /usr/share/mime/packages/
