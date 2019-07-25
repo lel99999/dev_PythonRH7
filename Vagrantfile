@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 # end
 
   config.vm.define "pythonRH7" do |pythonRH7|
-    pythonRH7.vm.box = "RH7.5_baserepo"
+    pythonRH7.vm.box = "clouddood/RH7.5_baserepo"
     pythonRH7.vm.hostname = "pythonRH7"
     pythonRH7.vm.network "private_network", ip: "192.168.60.147"
     pythonRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.147 pythonRH7.local pythonRH7' >> /etc/hosts"
