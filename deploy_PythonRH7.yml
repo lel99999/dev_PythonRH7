@@ -94,7 +94,7 @@
     - openjdk1.8
     - odbc
     - postgresql-client
-#   - devtools7
+    - devtools7
 
 # hosts: research_python
 # become: yes
@@ -102,20 +102,20 @@
 # roles:
 #   - devtools
 #   - devtools6
-#   - {role: python, when: "custom_repo"}
-#   - {role: python-build, when: "not custom_repo"}
-#   - {role: python3, when: "custom_repo"}
-#   - {role: python3-build, when: "not custom_repo"}
-#   - {role: python-libs}
+    - {role: python, when: "custom_repo"}
+    - {role: python-build, when: "not custom_repo"}
+    - {role: python3, when: "custom_repo"}
+    - {role: python3-build, when: "not custom_repo"}
+    - {role: python-libs}
 #   - postgresql-client
-#   - r-core
-#   - r-libs
-#   - r-studio-desktop
-#   - r-studio-server
-#   - r-studio-server-config
-#   - pycharm
-#   - gocd
-#   - stattransfer
+    - r-core
+    - r-libs
+    - r-studio-desktop
+    - r-studio-server
+    - r-studio-server-config
+    - pycharm
+    - gocd
+    - stattransfer14
 
 
 
