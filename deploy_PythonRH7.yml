@@ -87,6 +87,9 @@
 #     shell:  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -O /tmp/epel-release-latest-7.noarch.rpm   
 #   - name: Install epel
 #     shell:  yum -y localinstall /tmp/epel*rpm
+ 
+  become: yes
+  become_method: sudo
 
   roles:
     - epel7
