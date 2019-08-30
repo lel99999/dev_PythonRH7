@@ -41,7 +41,8 @@
     - openjdk1.8
     - odbc
     - postgresql-client
-    - devtools
+#   - devtools
+    - devtools7
 
 # hosts: research_python
 # become: yes
