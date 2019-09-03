@@ -16,6 +16,24 @@
   tags:
     - devtools7
 
+- name: Install updated devtools
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - devtoolset-7-binutils
+    - devtoolset-7-build
+##  Installed by devtoolset-7
+#   - devtoolset-2-gcc
+#   - devtoolset-2-gcc-c++
+#   - devtoolset-2-gcc-gfortran
+#   - devtoolset-2-gdb
+##  No git package with devtoolset-7
+#   - devtoolset-2-git
+    - git
+  tags:
+    - devtools7
+
 #- name: Start using devtools
 #  become: yes
 #  become_method: sudo
