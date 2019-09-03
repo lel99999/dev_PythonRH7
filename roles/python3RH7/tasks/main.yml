@@ -16,7 +16,7 @@
     - rh-python36-python-six
     - rh-python36-python-virtualenv
 
-- name: Install pip
-  easy_install:
-    name: pip
-    executable: easy_install-3.6
+#- name: Install pip
+#  easy_install:
+#    name: pip
+#    executable: easy_install-3.6

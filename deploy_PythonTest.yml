@@ -26,7 +26,9 @@
       register: enabled_repos
     - debug:
         msg: "RHEL Enabled Repos: {{ enabled_repos }}"
-# tasks:
+  tasks:
+    - name: Install Development Tools
+      shell:  yum groupinstall "Development Tools" -y
 #   - name: download epel
 #     shell:  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -O /tmp/epel-release-latest-7.noarch.rpm
 #   - name: Install epel
