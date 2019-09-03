@@ -12,7 +12,7 @@
 #       msg: "Variables: _uid = {{ _uid }}, _pwd = **********"
         msg: "Variables: _uid = {{ _uid }}, _pwd = {{ _pwd }}"
     - name: register RHEL7.5
-      command: "/usr/bin/subscription-manager register --username {{ _uid }} --password {{ _pwd }} --auto-attach"
+      command: "/usr/bin/subscription-manager register --username {{ _uid }} --password {{ _pwd }} --auto-attach --force"
 #     when: _uid != "" and _pwd != ""
 #     command: "/usr/bin/subscription-manager register --username <name> --password <password> --auto-attach"
     - name: register RHEL7 repo
@@ -70,12 +70,12 @@
 
 
   post_tasks:
-    - name: register mime types
-      shell: update-mime-database /usr/share/mime/packages/
+#   - name: register mime types
+#     shell: update-mime-database /usr/share/mime/packages/
 #   - name: create desktop application
 #     shell:
-    - name: update desktop database
-      shell: update-desktop-database ~/.local/share/applications
+#   - name: update desktop database
+#     shell: update-desktop-database ~/.local/share/applications
 #   - name: Install texlive
 #     yum:
 #       name: texlive2016
