@@ -19,6 +19,11 @@
     - python27-tkinter
     - python27-python-virtualenv
 
+- name: Pip install virtualenvwrapper
+  pip:
+    name: virtualenvwrapper
+    state: present
+
 #- name: Install pip
 #  easy_install:
 #    name: pip
