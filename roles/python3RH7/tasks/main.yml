@@ -24,7 +24,7 @@
 #    state: present
 - name: SCL Enabled Pip Install Upgrade Pip
   shell: |
-    scl enable python36 -- pip install --upgrade pip
+    scl enable rh-python36 -- pip install --upgrade pip
   become: yes
   become_method: sudo
 
