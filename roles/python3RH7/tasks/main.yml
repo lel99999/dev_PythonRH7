@@ -18,10 +18,14 @@
     - rh-python36-python-six
     - rh-python36-python-virtualenv
 
-- name: Pip install virtualenvwrapper
-  pip: executable=pip3
-    name: virtualenvwrapper
-    state: present
+#- name: Pip install virtualenvwrapper
+#  pip: executable=pip3
+#    name: virtualenvwrapper
+#    state: present
+- name: SCL Enabled Pip Install virtualenvwrapper
+  shell: |
+    scl enable python36 bash
+    pip3 install virtualenvwrapper
 
 #- name: Install pip
 #  easy_install:
