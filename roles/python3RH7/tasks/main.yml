@@ -22,10 +22,11 @@
 #  pip: executable=pip3
 #    name: virtualenvwrapper
 #    state: present
-- name: SCL Enabled Pip Install virtualenvwrapper
+- name: SCL Enabled Pip Install Upgrade Pip
   shell: |
-    scl enable python36 bash -- pip install virtualenvwrapper
-  become_user: root
+    scl enable python36 -- pip install --upgrade pip
+  become: yes
+  become_method: sudo
 
 #- name: Install pip
 #  easy_install:

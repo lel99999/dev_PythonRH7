@@ -12,9 +12,9 @@
     - python27-python-libs
     - python27-python-pip
     - python27-python-psycopg2
-    - python27-numpy
-    - python27-scipy
-#   - python27-python-six
+#   - python27-numpy         ## pip install will address
+#   - python27-scip          ## pip install will address
+#   - python27-python-six    ## pip install will address
     - python27-python-tools
     - python27-tkinter
     - python27-python-virtualenv
@@ -23,10 +23,21 @@
 #  pip:
 #    name: virtualenvwrapper
 #    state: present
+- name: SCL Enable Pip Install Upgrade Pip 
+  shell: |
+    scl enable python27 -- pip install --upgrade pip
+  become: yes
+  become_method: sudo
+
 - name: SCL Enable Pip Install virtualenvwrapper
   shell: |
-    scl enable python27 bash -- pip install --upgrade pip
-    pip install virtualenvwrapper
+    scl enable python27 -- pip install virtualenvwrapper
+  become: yes
+  become_method: sudo
+
+- name: SCL Enable Pip Install numpy, scipy
+  shell: |
+    scl enable python27 -- pip install numpy scipy 
   become: yes
   become_method: sudo
 
