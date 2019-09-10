@@ -33,6 +33,7 @@
     - devtools7
     - python2RH7
     - python3RH7
+    - pyenvRH7
 
 # hosts: research_python
 # become: yes
