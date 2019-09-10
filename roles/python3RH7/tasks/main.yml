@@ -24,8 +24,8 @@
 #    state: present
 - name: SCL Enabled Pip Install virtualenvwrapper
   shell: |
-    scl enable python36 bash
-    pip3 install virtualenvwrapper
+    scl enable python36 bash -- pip install virtualenvwrapper
+  become_user: root
 
 #- name: Install pip
 #  easy_install:
