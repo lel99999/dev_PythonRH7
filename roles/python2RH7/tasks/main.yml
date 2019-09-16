@@ -29,11 +29,12 @@
   become: yes
   become_method: sudo
 
-- name: SCL Enable Pip Install virtualenvwrapper
-  shell: |
-    scl enable python27 -- pip install virtualenvwrapper
-  become: yes
-  become_method: sudo
+# Already Installed with RHEL 7
+#- name: SCL Enable Pip Install virtualenvwrapper
+#  shell: |
+#    scl enable python27 -- pip install virtualenvwrapper
+#  become: yes
+#  become_method: sudo
 
 - name: SCL Enable Pip Install numpy, scipy
   shell: |
