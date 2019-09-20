@@ -1,12 +1,20 @@
-- hosts: wdcdevrepythonl01
+- hosts: pythonRH7
+  #- hosts: wdcdev
   vars:
     custom_repo: true
-# vars_files:
-#   - ~/RHACCOUNT
+  vars_files:
+    - ~/RHACCOUNT
   become: yes
   become_method: sudo
 
   pre_tasks:
+    - debug:
+#       msg: "Variables: _uid = {{ _uid }}, _pwd = **********"
+        msg: "Variables: _uid = {{ _uid }}, _pwd = {{ _pwd }}"
+    - name: register RHEL7.5
+      command: "/usr/bin/subscription-manager register --username {{ _uid }} --password {{ _pwd }} --auto-attach --force"
+#     when: _uid != "" and _pwd != ""
+#     command: "/usr/bin/subscription-manager register --username <name> --password <password> --auto-attach"
     - name: register RHEL7 repo
       command: "/usr/bin/subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-optional-rpms"
     - name: register RHEL7 RHSCL Repo
@@ -21,8 +29,13 @@
   tasks:
     - name: Install Development Tools
       shell:  yum groupinstall "Development Tools" -y
-    - name: Install JAVA OpenJDK 1.8
-      shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
+#   - name: download epel
+#     shell:  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -O /tmp/epel-release-latest-7.noarch.rpm
+#   - name: Install epel
+#     shell:  yum -y localinstall /tmp/epel*rpm
+
+  become: yes
+  become_method: sudo
 
   roles:
     - epel7
@@ -30,13 +43,11 @@
     - openjdk1.8
 #   - odbc
 #   - postgresql-client
+#   - devtools
+
     - devtools7
     - python2RH7
     - python3RH7
-    - pyenvRH7
-    - pycharm7
-    - gocd7
-    - stattransfer14
 
 # hosts: research_python
 # become: yes
@@ -64,6 +75,14 @@
   post_tasks:
 #   - name: register mime types
 #     shell: update-mime-database /usr/share/mime/packages/
+#   - name: create desktop application
+#     shell:
+#   - name: update desktop database
+#     shell: update-desktop-database ~/.local/share/applications
+#   - name: Install texlive
+#     yum:
+#       name: texlive2016
+#       state: present
 
 #   - name: remove RHEL7.5
 #     command:  "/usr/bin/subscription-manager remove --all"
