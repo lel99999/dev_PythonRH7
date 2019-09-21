@@ -1,6 +1,6 @@
 # main.yml - Install Python 2.7 and Packages from RedHat Satellite
 ---
-- name: Install PyEnv packages
+- name: Install PyEnv Required Packages
   yum:
     name: "{{ item }}"
     state: present
@@ -26,9 +26,12 @@
     dest: /tmp/pyenv-installer.sh
     mode: a+x
 
+- name: Check if PyEnv is already installed
+  stat:
+    path: /root/.pyenv
+  register: pyenv_installed
+
 - name: Install PyEnv
   shell: /tmp/pyenv-installer.sh
-#- name: Install pip
-#  easy_install:
-#    name: pip
-#    executable: easy_install-3.6
+  when: pyenv_installed.stat.exists == False
+
