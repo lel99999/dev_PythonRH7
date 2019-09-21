@@ -1,4 +1,4 @@
-- hosts: wdcdevrepythonl01
+- hosts: wdcrepythonl01
   vars:
     custom_repo: true
 # vars_files:
@@ -21,8 +21,8 @@
   tasks:
     - name: Install Development Tools
       shell:  yum groupinstall "Development Tools" -y
-    - name: Install JAVA OpenJDK 1.8
-      shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
+#   - name: Install JAVA OpenJDK 1.8
+#     shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
 
   roles:
     - epel7
@@ -35,7 +35,7 @@
     - python3RH7
     - pyenvRH7
     - pycharm7
-    - gocd7
+#   - gocd7
     - stattransfer14
 
 # hosts: research_python
