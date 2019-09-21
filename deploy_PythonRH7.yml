@@ -21,13 +21,13 @@
   tasks:
     - name: Install Development Tools
       shell:  yum groupinstall "Development Tools" -y
-#   - name: Install JAVA OpenJDK 1.8
-#     shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
+    - name: Install JAVA OpenJDK 1.8
+      shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
 
   roles:
     - epel7
 #   - emacsRH7
-    - openjdk1.8
+#   - openjdk1.8
 #   - odbc
 #   - postgresql-client
     - devtools7
