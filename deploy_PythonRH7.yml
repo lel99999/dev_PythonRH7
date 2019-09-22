@@ -37,6 +37,7 @@
     - pycharm7
 #   - gocd7
 #   - stattransfer14
+    - r_RH7
 
 # hosts: research_python
 # become: yes
