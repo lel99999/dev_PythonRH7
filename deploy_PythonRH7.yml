@@ -1,6 +1,8 @@
 - hosts: wdcrepythonl01
   vars:
     custom_repo: true
+    deploy_iptables: true
+    envir: prod
 # vars_files:
 #   - ~/RHACCOUNT
   become: yes
