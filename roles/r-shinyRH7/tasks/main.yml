@@ -56,15 +56,15 @@
   tags:
     - shiny
 
-- name: Create upstart directory
-  file:
-    dest: /etc/init
-    state: directory
-  when: envir == "dev.local"
+#- name: Create upstart directory
+# file:
+#   dest: /etc/init
+#   state: directory
+# when: envir == "dev.local"
 
-- name: Install shiny-server upstart script
-  template:
-    src: shiny-server.conf.j2
-    dest: /etc/init/shiny-server.conf
-  notify:
-      - restart shiny-server
+#- name: Install shiny-server upstart script
+# template:
+#   src: shiny-server.conf.j2
+#   dest: /etc/init/shiny-server.conf
+# notify:
+#     - restart shiny-server
