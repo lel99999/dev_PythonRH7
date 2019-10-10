@@ -10,7 +10,9 @@
 
 - name: Install "xcb" error fix
   yum:
-    name: libxkbcommon-x11
+    name:
+      - libxkbcommon-x11
+      - libxkbcommon-x11-devel
     state: present
     disable_gpg_check: yes
 
