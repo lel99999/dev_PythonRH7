@@ -2,6 +2,9 @@
   #- hosts: wdcdev
   vars:
     custom_repo: true
+    use_epel: true
+    deploy_iptables: true
+    envir: dev
   vars_files:
     - ~/RHACCOUNT
   become: yes
@@ -27,6 +30,11 @@
     - debug:
         msg: "RHEL Enabled Repos: {{ enabled_repos }}"
   tasks:
+    - name: Install X Windows
+      yum:
+        name: "@X Window System"
+        state: present
+
     - name: Install Development Tools
       shell:  yum groupinstall "Development Tools" -y
 #   - name: download epel
@@ -43,8 +51,8 @@
 
     - openjdk1.8
  
-#   - odbc
-#   - postgresql-client
+    - odbc7
+    - postgresql-client
 
     - devtools7
     - python2RH7
