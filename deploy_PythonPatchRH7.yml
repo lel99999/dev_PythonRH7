@@ -1,5 +1,6 @@
 - hosts: wdcrepythonl01
   vars:
+    use_epel: true
     custom_repo: true
     deploy_iptables: true
     envir: prod
