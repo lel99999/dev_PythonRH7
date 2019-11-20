@@ -245,6 +245,11 @@
   tags:
     - r
 
+- name: Install pdfgrep
+  yum:
+    name: pdfgrep
+    state: present
+
 - name: Pip install gdal 2.2.1
   shell: pip3 install gdal==2.2.1 
 
