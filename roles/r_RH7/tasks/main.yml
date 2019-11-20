@@ -250,6 +250,15 @@
     name: pdfgrep
     state: present
 
+#- name: Get and Build gdal 2.2.1
+# shell: wget http://download.osgeo.org/gdal/2.2.1/gdal-2.2.1.tar.gz -O /tmp/gdal-2.2.1.tar.gz
+# shell: tar xvf /tmp/gdal-2.2.1.tar.gz -C /opt/gdalRH7
+# shell: /opt/gdalRH7/configure --prefix=/usr/local --with-sfcgal=no
+# shell: make -j4
+# shell: sudo make install
+# unpack, configure, make, make install
+
+
 - name: Pip install gdal 2.2.1
   shell: pip3 install gdal==2.2.1 
 
