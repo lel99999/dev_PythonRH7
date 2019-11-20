@@ -260,3 +260,9 @@
     - proj-devel
     - proj-nad
     - proj-epsg
+
+- name: Fix rgdal non-zero status exit when installing OpenStreetMap
+  shell: cp /usr/local/lib/libgdal.so.* /usr/lib64
+
+- name: Install OpenStreetMap
+  shell:  R CMD install.pakcages("OpenStreetMap")
