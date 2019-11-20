@@ -244,3 +244,19 @@
   when: envir != "dev.local"
   tags:
     - r
+
+- name: Pip install gdal 2.2.1
+  shell: pip3 install gdal==2.2.1 
+
+- name: Install gdal dependencies
+  yum:
+    name: "{{ items }}"
+    state: present
+  with_items:
+    - libgdal*dev*
+    - gdal-devel
+    - gdal-libs
+    - proj
+    - proj-devel
+    - proj-nad
+    - proj-epsg
