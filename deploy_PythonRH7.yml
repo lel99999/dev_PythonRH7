@@ -1,4 +1,4 @@
-- hosts: wdcrepythonl01
+- hosts: wdcrerpyl05
   vars:
     custom_repo: true
     deploy_iptables: true
