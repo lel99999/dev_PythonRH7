@@ -8,7 +8,8 @@
 
 - name: Install packages required by R packages
   vars:
-    install_RDep: False
+#   install_RDep: False
+    install_RDep: True
   yum:
     name: "{{ item }}"
 #    state: latest
@@ -23,7 +24,15 @@
     - r
 #- debug:
 #    msg: "R dependencies {{ r_dependencies }}"
+
+- name: Ensure epel7 latest is installed
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+    disable_gpg_check: yes
     
+- name: Ensure RHEL7 repos enabled
+  command: "/usr/bin/subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-optional-rpms"
 
 # R is a meta package that ensures R-core, R-core-devel, R-java, libRMath, libRMath-devel
 - name: Install R-core
