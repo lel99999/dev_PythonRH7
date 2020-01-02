@@ -15,6 +15,9 @@
 - name: Download texinfo (3) packages for dependency resolution
   shell: wget http://mirror.centos.org/centos/7/os/x86_64/Packages/texlive-epsf-svn21461.2.7.4-43.el7.noarch.rpm -O /opt/texlive-epsf-svn21461.2.7.4-43.el7.noarch.rpm
 
+- name: Download texinfo (4) packages for dependency resolution
+  shell: wget http://mirror.centos.org/centos/6/os/x86_64/Packages/texlive-texmf-xetex-2007-39.el6_7.noarch.rpm -O /opt/texlive-texmf-xetex-2007-39.el6_7.noarch.rpm
+
 - name: Install texlive packages
   shell:  yum localinstall /opt/texlive* -y
 
