@@ -26,7 +26,7 @@
 #  http://mirrors.ctan.org/support/texlive/texlive-dummy/EnterpriseLinux-7/texlive-dummy-2012a-1.el7.noarch.rpm
 
 - name: Execute texlive dummy rpm
-  shell: yum localinstall /opt/texlive-dummy-2012a-1.el7.noarch.rpm -y
+  shell: yum localinstall /opt/texlive-dummy-2012a-1.el7.noarch.rpm -y --skip-broken
   
 - name: Install packages required by R packages
   vars:
