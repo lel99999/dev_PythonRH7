@@ -21,6 +21,13 @@
 - name: Install texlive packages
   shell:  yum localinstall /opt/texlive* -y
 
+- name: Download texlive dummy for for dependency resolution
+  shell: wget http://mirrors.ctan.org/support/texlive/texlive-dummy/EnterpriseLinux-7/texlive-dummy-2012a-1.el7.noarch.rpm -O /opt/texlive-dummy-2012a-1.el7.noarch.rpm
+#  http://mirrors.ctan.org/support/texlive/texlive-dummy/EnterpriseLinux-7/texlive-dummy-2012a-1.el7.noarch.rpm
+
+- name: Execute texlive dummy rpm
+  shell: yum localinstall /opt/texlive-dummy-2012a-1.el7.noarch.rpm -y
+  
 - name: Install packages required by R packages
   vars:
 #   install_RDep: False
