@@ -28,19 +28,19 @@
     state: touch
   when: not odbc_ini.stat.exists
 
-#- name: Configure odbc.ini
-# template:
-#   src: ../templates/odbc.ini
-#   dest: /etc/odbc.ini
-# tags:
-#   - odbc
+- name: Configure odbc.ini
+  template:
+    src: ../templates/odbc.ini
+    dest: /etc/odbc.ini
+  tags:
+    - odbc
 
-#- name: Configure odbcinst.ini
-# template:
-#   src: ./templates/odbcinst.ini
-#   dest: /etc/odbcinst.ini
-# tags:
-#   - odbc
+- name: Configure odbcinst.ini
+  template:
+    src: ../templates/odbcinst.ini
+    dest: /etc/odbcinst.ini
+  tags:
+    - odbc
 
 - name: Configure freetds.conf
   template:
