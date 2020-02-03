@@ -19,14 +19,17 @@
   shell: wget http://mirror.centos.org/centos/6/os/x86_64/Packages/texlive-texmf-xetex-2007-39.el6_7.noarch.rpm -O /opt/texlive-texmf-xetex-2007-39.el6_7.noarch.rpm
 
 - name: Install texlive packages
-  shell:  yum localinstall /opt/texlive* -y
-
+#  shell:  yum localinstall /opt/texlive* -y
+  yum:
+    name: texlive
+    state: present
+    
 - name: Download texlive dummy for for dependency resolution
   shell: wget http://mirrors.ctan.org/support/texlive/texlive-dummy/EnterpriseLinux-7/texlive-dummy-2012a-1.el7.noarch.rpm -O /opt/texlive-dummy-2012a-1.el7.noarch.rpm
 #  http://mirrors.ctan.org/support/texlive/texlive-dummy/EnterpriseLinux-7/texlive-dummy-2012a-1.el7.noarch.rpm
 
-- name: Execute texlive dummy rpm
-  shell: yum localinstall /opt/texlive-dummy-2012a-1.el7.noarch.rpm -y --skip-broken
+#- name: Execute texlive dummy rpm
+#  shell: yum localinstall /opt/texlive-dummy-2012a-1.el7.noarch.rpm -y --skip-broken
   
 - name: Install packages required by R packages
   vars:
@@ -40,7 +43,7 @@
     skip_broken: yes
 #   exclude:  texlive-texmf-xetex
   with_items: "{{ r_dependencies }}"
-  when: install_RDep == True
+  when: install_RDep
   register: r_dependencies
   tags:
     - r
