@@ -31,12 +31,13 @@
       yum:
         name: "@Development tools"
         state: present
+
 #   - name: Install JAVA OpenJDK 1.8
 #     shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
 
   roles:
     - epel7
-#   - emacsRH7
+    - emacsRH7
 #   - openjdk1.8
 #   - odbc
 #   - postgresql-client
