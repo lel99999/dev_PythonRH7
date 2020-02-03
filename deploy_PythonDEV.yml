@@ -28,7 +28,7 @@
     - epel7
     - emacs7
 #   - emacsRH7
-    - openjdk1.8
+#   - openjdk1.8
     - odbc7
 #   - postgresql-client
     - devtools7
