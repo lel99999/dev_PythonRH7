@@ -189,8 +189,9 @@
   register: r_dependencies
   tags:
     - r
-- debug:
-    msg: "R dependencies {{ r_dependencies }}"
+
+#- debug:
+#   msg: "R dependencies {{ r_dependencies }}"
     
 - name: Find any locked directories
   find:
