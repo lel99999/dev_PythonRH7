@@ -193,13 +193,13 @@
     disable_gpg_check: yes
     skip_broken: yes
   with_items: "{{ r_dependencies }}"
-  when: r_dependencies_flag
   register: r_dependencies
   tags:
     - r
+  when: r_dependencies_flag
 
- - debug:
-    msg: "R dependencies {{ r_dependencies }}"
+# - debug:
+#   msg: "R dependencies {{ r_dependencies }}"
     
 - name: Find any locked directories
   find:
