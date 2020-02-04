@@ -194,12 +194,12 @@
     skip_broken: yes
   with_items: "{{ r_dependencies }}"
   when: r_dependencies_flag
-# register: r_dependencies
+  register: r_dependencies
   tags:
     - r
 
-#- debug:
-#   msg: "R dependencies {{ r_dependencies }}"
+ - debug:
+    msg: "R dependencies {{ r_dependencies }}"
     
 - name: Find any locked directories
   find:
