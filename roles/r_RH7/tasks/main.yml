@@ -189,14 +189,12 @@
     r_dependencies_flag: True
   yum:
     name: "{{ item }}"
-#    state: latest
     state: present
     disable_gpg_check: yes
     skip_broken: yes
-#   exclude:  texlive-* texlive-texmf-xetex*
   with_items: "{{ r_dependencies }}"
   when: r_dependencies_flag
-  register: r_dependencies
+# register: r_dependencies
   tags:
     - r
 
