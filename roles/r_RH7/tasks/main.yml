@@ -295,12 +295,19 @@
 # unpack, configure, make, make install
 
 
-#- name: Pip install gdal 2.2.1
+#- name: Install python gdal bindings - Pip install gdal 2.2.1
+#  become: yes
+#  become_method: sudo
 #  shell: pip3 install gdal==2.2.1 
+
+#- name: create necessary links with ldconfig
+#  become: yes
+#  become_method: sudo
+#  shell: ldconfig
 
 - name: Install gdal dependencies
   yum:
-    name: "{{ items }}"
+    name: "{{ item }}"
     state: present
   with_items:
     - libgdal*dev*
