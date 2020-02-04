@@ -14,8 +14,12 @@
 - name: create symbolic link for pointers to /opt/rh/devtoolset-2
   become: yes
   become_method: sudo
-  shell: ln -s /opt/rh/devtoolset-7 /opt/rh/devtoolset-2
-  when: devtoolset-link.stat.islnk is not defined
+# shell: ln -s /opt/rh/devtoolset-7 /opt/rh/devtoolset-2
+  file:
+    src: /opt/rh/devtoolset-7
+    dest: /opt/rh/devtoolset-2
+    state: link
+  when: devtoolset-link.stat.islnk == false 
 
 - name: Download texinfo (1) packages for dependency resolution
   shell: wget http://mirror.centos.org/centos/7/os/x86_64/Packages/texinfo-tex-5.1-5.el7.x86_64.rpm -O /opt/texinfo-tex-5.1-5.el7.x86_64.rpm
