@@ -6,10 +6,16 @@
     regexp: (.*)umask(.*)
     state: present
 
+- name: check if symbolic link exists
+  stat:
+    path: /opt/rh/devtoolset-2
+  register: devtoolset-link
+
 - name: create symbolic link for pointers to /opt/rh/devtoolset-2
   become: yes
   become_method: sudo
   shell: ln -s /opt/rh/devtoolset-7 /opt/rh/devtoolset-2
+  when: devtoolset-link.stat.exists == False
 
 - name: Download texinfo (1) packages for dependency resolution
   shell: wget http://mirror.centos.org/centos/7/os/x86_64/Packages/texinfo-tex-5.1-5.el7.x86_64.rpm -O /opt/texinfo-tex-5.1-5.el7.x86_64.rpm
