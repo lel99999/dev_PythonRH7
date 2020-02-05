@@ -1,4 +1,4 @@
-- hosts: wdcrerpyl05
+- hosts: research_python7
   vars:
     custom_repo: true
     deploy_iptables: true
