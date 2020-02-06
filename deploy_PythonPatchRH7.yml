@@ -1,4 +1,4 @@
-- hosts: wdcrepythonl01
+- hosts: research_python7
   vars:
     use_epel: true
     custom_repo: true
