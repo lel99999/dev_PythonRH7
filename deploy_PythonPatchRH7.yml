@@ -57,10 +57,10 @@
 #  become_method: sudo
 #  shell: ldconfig
 
-- name: Ensure epel 7 is installed
-  yum:
-    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    state: present
+    - name: Ensure epel 7 is installed
+      yum:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+        state: present
 
 #- name: Install gdal dependencies
 # yum:
