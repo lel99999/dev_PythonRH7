@@ -35,6 +35,48 @@
 #   - name: Install JAVA OpenJDK 1.8
 #     shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
 
+## GDAL Patch ######################################################
+    - name: Get and Build gdal 2.2.1
+      become: yes
+      become_method: sudo
+      shell: wget http://download.osgeo.org/gdal/2.2.1/gdal-2.2.1.tar.gz -O /tmp/gdal-2.2.1.tar.gz
+      shell: tar xvf /tmp/gdal-2.2.1.tar.gz -C /opt/gdalRH7
+      shell: /opt/gdalRH7/configure --prefix=/usr/local --with-sfcgal=no
+      shell: make -j4
+      shell: make install
+# unpack, configure, make, make install
+
+
+#- name: Install python gdal bindings - Pip install gdal 2.2.1
+#  become: yes
+#  become_method: sudo
+#  shell: pip3 install gdal==2.2.1
+
+#- name: create necessary links with ldconfig
+#  become: yes
+#  become_method: sudo
+#  shell: ldconfig
+
+- name: Ensure epel 7 is installed
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+
+#- name: Install gdal dependencies
+# yum:
+#   name: "{{ item }}"
+#   state: present
+# with_items:
+#   - libgdal*dev*
+#   - gdal-devel
+#   - gdal-libs
+#   - proj
+#   - proj-devel
+#   - proj-nad
+#   - proj-epsg
+
+
+
   roles:
 #   - epel7
 #   - emacsRH7
