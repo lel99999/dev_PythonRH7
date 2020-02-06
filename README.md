@@ -1,6 +1,13 @@
 # dev_PythonRH7
 Out of band Dev Python RHEL7
 
+### For local Vagrant provisioning
+$vagrant up --no-provision
+
+for specific provisioning parts:
+$vagrant provision --provision-with main
+$vagrant provision --provision-with update
+
 #### Update R packages from list
 updpackages <- function(pkg){
             new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]

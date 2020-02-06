@@ -16,10 +16,22 @@ Vagrant.configure("2") do |config|
     pythonRH7.vm.hostname = "pythonRH7"
     pythonRH7.vm.network "private_network", ip: "192.168.60.147"
     pythonRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.147 pythonRH7.local pythonRH7' >> /etc/hosts"
-    pythonRH7.vm.provision "ansible" do |ansible|
+
+    # Default 
+    # Main
+    pythonRH7.vm.provision "main", type: "ansible" do |ansible|
 #     ansible.playbook = "deploy_PythonRH7.yml"
 #     ansible.playbook = "deploy_PythonTest.yml"
       ansible.playbook = "deploy_PythonTest.yml"
+      ansible.inventory_path = "vagrant_hosts"
+      #ansible.tags = ansible_tags
+      #ansible.verbose = ansible_verbosity
+      #ansible.extra_vars = ansible_extra_vars
+      #ansible.limit = ansible_limit
+    end
+    # Update
+    pythonRH7.vm.provision "update", type: "ansible" do |ansible|
+      ansible.playbook = "deploy_PythonPatchRH7.yml"
       ansible.inventory_path = "vagrant_hosts"
       #ansible.tags = ansible_tags
       #ansible.verbose = ansible_verbosity
