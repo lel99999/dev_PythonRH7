@@ -40,6 +40,7 @@
       shell: "{{ item }}"
       with_items:
         - wget http://s3.amazonaws.com/etc-data.koordinates.com/gdal-travisci/install-libkml-r864-64bit.tar.gz -O /tmp/install-libkml-r864-64bit.tar.gz
+        - mkdir /opt/libkml
         - tar xzf /tmp/install-libkml-r864-64bit.tar.gz -C /opt/libkml
         - cp -r /opt/libkml/install-libkml/include/* /usr/local/include
         - cp -r /opt/libkml/install-libkml/lib/* /usr/local/lib
