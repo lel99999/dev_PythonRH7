@@ -37,21 +37,25 @@
 
 ## GDAL Patch ######################################################
     - name: Install gdal preliminary addons
-      shell: wget http://http://s3.amazonaws.com/etc-data.koordinates.com/gdal-travisci/install-libkml-r864-64bit.tar.gz -O /tmp/install-libkml-r864-64bit.tar.gz
-      shell: tar xzf install-libkml-r864-64bit.tar.gz -C /opt/libkml
-      shell: cp -r /opt/libkml/install-libkml/include/* /usr/local/include
-      shell: cp -r /opt/libkml/install-libkml/lib/* /usr/local/lib
-      shell: ldconfig
+      shell: "{{ item }}"
+      with_items:
+        - wget http://http://s3.amazonaws.com/etc-data.koordinates.com/gdal-travisci/install-libkml-r864-64bit.tar.gz -O /tmp/install-libkml-r864-64bit.tar.gz
+        - tar xzf /tmp/install-libkml-r864-64bit.tar.gz -C /opt/libkml
+        - cp -r /opt/libkml/install-libkml/include/* /usr/local/include
+        - cp -r /opt/libkml/install-libkml/lib/* /usr/local/lib
+        - ldconfig
 
     - name: Get and Build gdal 2.2.1
       become: yes
       become_method: sudo
-      shell: wget http://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz -O /tmp/gdal-2.2.3.tar.gz
-      shell: tar xvf /tmp/gdal-2.2.3.tar.gz -C /opt/gdalRH7
-      shell: /opt/gdalRH7/configure --prefix=/usr/local/ --with-libkml --with-sfcgal=no
-      shell: make -j4
-      shell: make install
-# unpack, configure, make, make install
+      shell: "{{ item }}"
+      with_items:
+        - wget http://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz -O /tmp/gdal-2.2.3.tar.gz
+        - tar xvf /tmp/gdal-2.2.3.tar.gz -C /opt/gdalRH7
+        - /opt/gdalRH7/configure --prefix=/usr/local/ --with-libkml --with-sfcgal=no
+        - make -j4
+        - make install
+    # unpack, configure, make, make install
 
 
     - name: Install python gdal bindings - Pip install gdal 2.2.1
