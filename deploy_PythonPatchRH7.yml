@@ -46,8 +46,8 @@
     - name: Get and Build gdal 2.2.1
       become: yes
       become_method: sudo
-      shell: wget http://download.osgeo.org/gdal/2.2.1/gdal-2.2.1.tar.gz -O /tmp/gdal-2.2.1.tar.gz
-      shell: tar xvf /tmp/gdal-2.2.1.tar.gz -C /opt/gdalRH7
+      shell: wget http://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz -O /tmp/gdal-2.2.3.tar.gz
+      shell: tar xvf /tmp/gdal-2.2.3.tar.gz -C /opt/gdalRH7
       shell: /opt/gdalRH7/configure --prefix=/usr/local/ --with-libkml --with-sfcgal=no
       shell: make -j4
       shell: make install
