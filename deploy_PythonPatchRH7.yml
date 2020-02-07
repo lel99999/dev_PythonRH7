@@ -46,23 +46,24 @@
         - cp -r /opt/libkml/install-libkml/lib/* /usr/local/lib
         - ldconfig
 
-    - name: Get and Build gdal 2.2.1
+    - name: Get and Build gdal 2.2.3
       become: yes
       become_method: sudo
       shell: "{{ item }}"
       with_items:
         - wget http://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz -O /tmp/gdal-2.2.3.tar.gz
-        - tar xvf /tmp/gdal-2.2.3.tar.gz -C /opt/gdalRH7
-        - /opt/gdalRH7/configure --prefix=/usr/local/ --with-libkml --with-sfcgal=no
+        - mkdir /opt/gdal223
+        - tar xvf /tmp/gdal-2.2.3.tar.gz -C /opt/gdal223
+        - /opt/gdal223/configure --prefix=/usr/local/ --with-libkml --with-sfcgal=no
         - make -j4
         - make install
     # unpack, configure, make, make install
 
 
-    - name: Install python gdal bindings - Pip install gdal 2.2.1
+    - name: Install python gdal bindings - Pip install gdal 2.2.3
       become: yes
       become_method: sudo
-      shell: pip3 install gdal==2.2.1
+      shell: pip3 install gdal==2.2.3
 
     - name: create necessary links with ldconfig
       become: yes
