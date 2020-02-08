@@ -38,8 +38,8 @@
         - ldconfig
 
     - name: Check if gdal 2.2.3 already deployed
-      file:
-        stat: /opt/gdal223/gdal-2.2.3
+      stat:
+        path: /opt/gdal223/gdal-2.2.3
       register: gdal
 
     - name: Get and Build gdal 2.2.3
