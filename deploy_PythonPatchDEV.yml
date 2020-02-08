@@ -48,8 +48,8 @@
 #       - /opt/gdal223/gdal-2.2.3/configure --prefix=/usr/local/ --with-libkml --with-sfcgal=no
 
     - name: Configure gdal 2.2.3
-#     become: yes
-#     become_method: sudo
+      become: yes
+      become_method: sudo
       command: "./configure --prefix=/usr/local/ --with-libkml --with-sfcgal=no"
       args:
         chdir: /opt/gdal223/
