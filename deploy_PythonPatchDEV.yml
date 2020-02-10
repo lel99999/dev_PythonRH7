@@ -101,6 +101,7 @@
         - curl
         - libcurl
         - libcurl-devel
+        - postgresql-devel
 
     - name: Install R Patch packages
 #     vars:
