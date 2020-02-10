@@ -27,6 +27,11 @@
 #     shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
 
 ## GDAL Patch ######################################################
+    - name: Check if libkml is already deployed
+      stat:
+        path: /opt/libkml/install-libkml
+      register: libkmlstatus
+
     - name: Install gdal preliminary addons
       shell: "{{ item }}"
       with_items:
@@ -36,6 +41,7 @@
         - cp -r /opt/libkml/install-libkml/include/* /usr/local/include
         - cp -r /opt/libkml/install-libkml/lib/* /usr/local/lib
         - ldconfig
+      when: libkmlstatus.stat.exists == false
 
     - name: Check if gdal 2.2.3 already deployed
       stat:
@@ -87,10 +93,56 @@
       shell: ldconfig
       when: gdal.stat.exists == false
 
+    - name: Install gdal additional dependencies
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - curl
+        - libcurl
+        - libcurl-devel
+
+    - name: Install R Patch packages
+#     vars:
+#       do_r_install_packages: False
+      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--no-test-load'),repos=c('http://cran.rstudio.com/'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
+      with_items:
+        - sf 
+        - units
+        - devtools
+#     with_items: "{{ r_packages }}"
+      register: r_add_result
+      failed_when: "r_result.rc != 0 or 'had non-zero exit status' in r_result.stderr"
+      changed_when: "'Added' in r_result.stdout"
+      environment: "{{ r_env_vars }}"
+      tags:
+        - r
+#     when: install_r_packages and do_r_install_packages
+
+
     - name: Ensure epel 7 is installed
       yum:
         name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
         state: present
+
+    # Get texlive 2019 install
+    - name: Check if textlive already deployed
+      stat:
+        path: /tmp/install-tl-unx.tar.gz
+      register: texlivestatus
+
+    - name: Get texlive 2019 binary
+      get_url:
+        url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+        dest: /tmp/install-tl-unx.tar.gz
+        mode: 0755
+      when: textlivestatus.stat.exists == false
+    - name: Extract texlive 2019
+      unarchive:
+        src: /tmp/install-tl-unx.tar.gz
+        dest: /opt
+        remote_src: yes
+      when: textlivestatus.stat.exists == false
 
   roles:
 #   - epel7
