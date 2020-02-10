@@ -135,13 +135,13 @@
         url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
         dest: /tmp/install-tl-unx.tar.gz
         mode: 0755
-      when: textlivestatus.stat.exists == false
+      when: texlivestatus.stat.exists == false
     - name: Extract texlive 2019
       unarchive:
         src: /tmp/install-tl-unx.tar.gz
         dest: /opt
         remote_src: yes
-      when: textlivestatus.stat.exists == false
+      when: texlivestatus.stat.exists == false
 
   roles:
 #   - epel7
