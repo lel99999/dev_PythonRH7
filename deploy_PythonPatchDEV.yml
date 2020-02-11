@@ -119,7 +119,67 @@
         - r
 #     when: install_r_packages and do_r_install_packages
 
+## R Large Package Patch ######################################################
+    - name: Install R Patch packages #1
+#     vars:
+#       do_r_install_packages: False
+      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--no-test-load'),repos=c('http://cran.rstudio.com/'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
+      with_items: "{{ r_packages1 }}"
+#       - sf
+#       - units
+#       - devtools
+      register: r_add_result1
+#     failed_when: "r_result.rc != 0 or 'had non-zero exit status' in r_result.stderr"
+#     changed_when: "'Added' in r_result.stdout"
+      environment: "{{ r_env_vars }}"
+      tags:
+        - r
 
+    - name: Install R Patch packages #2
+#     vars:
+#       do_r_install_packages: False
+      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--no-test-load'),repos=c('http://cran.rstudio.com/'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
+      with_items: "{{ r_packages2 }}"
+#       - sf
+#       - units
+#       - devtools
+      register: r_add_result2
+#     failed_when: "r_result.rc != 0 or 'had non-zero exit status' in r_result.stderr"
+#     changed_when: "'Added' in r_result.stdout"
+      environment: "{{ r_env_vars }}"
+      tags:
+        - r
+
+    - name: Install R Patch packages #3
+#     vars:
+#       do_r_install_packages: False
+      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--no-test-load'),repos=c('http://cran.rstudio.com/'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
+      with_items: "{{ r_packages3 }}"
+#       - sf
+#       - units
+#       - devtools
+      register: r_add_result3
+#     failed_when: "r_result.rc != 0 or 'had non-zero exit status' in r_result.stderr"
+#     changed_when: "'Added' in r_result.stdout"
+      environment: "{{ r_env_vars }}"
+      tags:
+        - r
+
+    - name: Install R Patch packages #4
+#     vars:
+#       do_r_install_packages: False
+      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--no-test-load'),repos=c('http://cran.rstudio.com/'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
+      with_items: "{{ r_packages4 }}"
+#       - sf
+#       - units
+#       - devtools
+      register: r_add_result4
+#     failed_when: "r_result.rc != 0 or 'had non-zero exit status' in r_result.stderr"
+#     changed_when: "'Added' in r_result.stdout"
+      environment: "{{ r_env_vars }}"
+      tags:
+        - r
+#     when: install_r_packages and do_r_install_packages
     - name: Ensure epel 7 is installed
       yum:
         name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
