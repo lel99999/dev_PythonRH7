@@ -433,7 +433,8 @@ r_dependencies:
   - ImageMagick
   - ImageMagick-c++-devel
 
-r_packages:
+#r_packages:
+r_packages1:
   - stringi
   - ggplot2
   - NeuralNetTools
@@ -553,6 +554,8 @@ r_packages:
   - lme4
   - lsa
   - lubridate
+
+r_packages2:
   - magick
   - manipulate
   - mapdata
@@ -643,6 +646,8 @@ r_packages:
   - RSNNS
   - RSQLite
   # - Rstem # Removed from CRAN
+
+r_packages3:
   - RSurvey
   - RTextTools
   - RWeka
@@ -742,6 +747,8 @@ r_packages:
   - rzmq
   - repr
   - purrr
+
+r_packages4:
   - fuzzyjoin
   - microbenchmark
   - itertools
