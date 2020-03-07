@@ -40,7 +40,9 @@
     - emacsRH7
 #   - openjdk1.8
 #   - odbc
+    - odbc7
 #   - postgresql-client
+    - postgresql-client7
     - devtools7
     - python2RH7
     - python3RH7
