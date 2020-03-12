@@ -17,6 +17,9 @@ Vagrant.configure("2") do |config|
     pythonRH7.vm.network "private_network", ip: "192.168.60.147"
     pythonRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.147 pythonRH7.local pythonRH7' >> /etc/hosts"
 
+
+##  Use Main / Update in Vagrant provision command ### $vagrant provision --provision-with shell/main/update
+
     # Default 
     # Main
     pythonRH7.vm.provision "main", type: "ansible" do |ansible|
