@@ -144,12 +144,11 @@
       tags:
         - r
 
-<<<<<<< HEAD
     - name: Install htop
       yum:
         name: htop
         state: present
-=======
+
     - name: Fix rgdal non-zero status exit when installing OpenStreetMap
       become: yes
       become_method: sudo
@@ -169,8 +168,6 @@
       environment: "{{ r_env_vars }}"
       tags:
         - r
-
->>>>>>> 6cdc24ac9f37ac29c4cca1e2ef83aff42bf94ed1
 
     - name: Ensure epel 7 is installed
       yum:
