@@ -8,13 +8,13 @@
     - emacs
     - libotf
 
- = name: Install emacs RPMs
-   yum:
-     name:
-       - emacs-common-ess*noarch
-       - emacs-ess*noarch
-     state: present
-     disable_gpg_check: yes
+- name: Install emacs RPMs
+  yum:
+    name:
+      - emacs-common-ess*noarch
+      - emacs-ess*noarch
+    state: present
+    disable_gpg_check: yes
 
 #- name: install gdown
 #  shell: pip3 install gdown
