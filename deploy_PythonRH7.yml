@@ -36,7 +36,7 @@
 
   roles:
     - epel7
-    - emacs7
+#   - emacs7
 #   - openjdk1.8
     - odbc7
 #   - postgresql-client
