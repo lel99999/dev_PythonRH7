@@ -8,17 +8,25 @@
     - emacs
     - libotf
 
-- name: install gdown
-  shell: pip3 install gdown
+ = name: Install emacs RPMs
+   yum:
+     name:
+       - emacs-common-ess*noarch
+       - emacs-ess*noarch
+     state: present
+     disable_gpg_check: yes
 
-- name: use gdown to download emacs-common-ess-17.11-2.fc30.noarch.rpm
-  shell: gdown  https://drive.google.com/uc?id=1K5DTicyzmta4GNyfQF6icv7dXzmDBYNG -O /tmp/emacs-common-ess-17.11-2.fc30.noarch.rpm
+#- name: install gdown
+#  shell: pip3 install gdown
 
-- name: use gdown to download emacs-ess-17.11-2.fc30.noarch.rpm 
-  shell: gdown  https://drive.google.com/open?id=1KkSVsZHo1IlmHR9bLG0H0XtlOIpiBxUI -O /tmp/emacs-ess-17.11-2.fc30.noarch.rpm
+#- name: use gdown to download emacs-common-ess-17.11-2.fc30.noarch.rpm
+#  shell: gdown  https://drive.google.com/uc?id=1K5DTicyzmta4GNyfQF6icv7dXzmDBYNG -O /tmp/emacs-common-ess-17.11-2.fc30.noarch.rpm
 
-- name: Install Emacs Speaks Statisitcs RH7
-  shell: yum localinstall -y /tmp/emacs*fc30* --nogpgcheck
+#- name: use gdown to download emacs-ess-17.11-2.fc30.noarch.rpm 
+#  shell: gdown  https://drive.google.com/open?id=1KkSVsZHo1IlmHR9bLG0H0XtlOIpiBxUI -O /tmp/emacs-ess-17.11-2.fc30.noarch.rpm
+
+#- name: Install Emacs Speaks Statisitcs RH7
+#  shell: yum localinstall -y /tmp/emacs*fc30* --nogpgcheck
 
 # yum:
 #   name: "{{ item }}"
