@@ -27,7 +27,7 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - libgdal*dev*
+#       - libgdal*dev*
         - gdal-devel
         - gdal-libs
         - proj
