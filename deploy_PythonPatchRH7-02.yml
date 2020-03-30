@@ -41,7 +41,7 @@
         - rgdal
 
     - name: Install RGDAL Dependency Packages
-      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--with-gdal-config,"/usr/local/bin/gdal-config'),repos=c('http://http://cran.rstudio.com'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
+      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--with-gdal-config,"/usr/local/bin/gdal-config"'),repos=c('http://http://cran.rstudio.com'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
       with_items:
         - PROJ
         - sf
