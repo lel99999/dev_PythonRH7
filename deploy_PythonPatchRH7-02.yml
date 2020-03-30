@@ -22,6 +22,12 @@
     - debug:
         msg: "RHEL Enabled Repos: {{ enabled_repos }}"
   tasks:
+    - name: Fix xcb error
+      yum:
+        name: 
+          - libxkbcmmon-x11
+      state: present
+
     - name: Install gdal dependencies
       yum:
         name: "{{ item }}"
