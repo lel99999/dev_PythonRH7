@@ -46,3 +46,6 @@ cd gdal-2.2.3
 `$make`<br/>
 `$make install`<br/>
 
+#### Shared library error
+Add /usr/local/lib to e.g. /etc/ld.so.conf.d/libgdal-x86_64.conf<br/>
+Run ldconfig<br/>
