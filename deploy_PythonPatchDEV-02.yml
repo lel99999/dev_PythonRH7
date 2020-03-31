@@ -19,6 +19,36 @@
     - debug:
         msg: "RHEL Enabled Repos: {{ enabled_repos }}"
   tasks:
+    - name: Fix xcb error
+      yum:
+        name:
+          - libxkbcmmon-x11
+      state: present
+
+    - name: Install gdal dependencies
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+#       - libgdal*dev*
+        - gdal-devel
+        - gdal-libs
+        - proj
+        - proj-devel
+        - proj-nad
+        - proj-epsg
+
+    - name: Install RGDAL Additional Packages
+      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--no-test-load'),repos=c('http://R-forge.R-project.org/'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
+      with_items:
+        - rgdal
+
+    - name: Install RGDAL Dependency Packages
+      command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--with-gdal-config,"/usr/local/bin/gdal-config"'),repos=c('http://http://cran.rstudio.com'),dep=TRUE); print('Added'); } else { print('Already installed'); }"
+      with_items:
+        - PROJ
+        - sf
+
     - name: Install R Patch packages
       vars:
         do_r_install_packages: False
