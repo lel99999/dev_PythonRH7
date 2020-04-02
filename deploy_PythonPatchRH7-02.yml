@@ -25,7 +25,7 @@
     - name: Fix xcb error
       yum:
         name: 
-          - libxkbcmmon-x11
+          - libxkbcommon-x11
       state: present
 
     - name: Install gdal dependencies
