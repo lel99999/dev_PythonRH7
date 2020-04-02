@@ -74,8 +74,8 @@
 #   - epel7
 #   - emacsRH7
 #   - openjdk1.8
-    - odbc7
-#   - postgresql-client
+#   - odbc7
+    - postgresql-client7
 #   - devtools7
 #   - python2RH7
 #   - python3RH7
