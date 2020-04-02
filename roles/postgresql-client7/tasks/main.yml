@@ -36,8 +36,8 @@
 - name: Install postgres packages
   yum:
     name: "{{ item }}"
-#   state: present
-    state: latest
+    state: present
+#   state: latest
     disable_gpg_check: yes
   with_items: "{{ postgres_packages }}"
   tags:
