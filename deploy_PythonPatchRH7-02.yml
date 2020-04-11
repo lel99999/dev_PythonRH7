@@ -22,6 +22,11 @@
     - debug:
         msg: "RHEL Enabled Repos: {{ enabled_repos }}"
   tasks:
+    - name: Fix legacy Python 2.7.x virtualenv issue
+      yum:
+        name:  python-virtualenv
+      state: present
+
     - name: Fix xcb error
       yum:
         name: 
