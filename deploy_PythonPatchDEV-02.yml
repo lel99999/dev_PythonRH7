@@ -19,6 +19,14 @@
     - debug:
         msg: "RHEL Enabled Repos: {{ enabled_repos }}"
   tasks:
+    - name: Install jupyter notebook
+      shell:  pip3 install jupyter
+
+    - name: Install python 2.7 virtualenv
+      yum:
+        name: python-virtualenv
+        state:  present
+
     - name: Fix xcb error
       yum:
         name:
