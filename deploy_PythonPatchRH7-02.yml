@@ -24,6 +24,11 @@
   tasks:
     - name: Install jupyter notebook
       shell:  pip3 install jupyter
+
+    - name: Install python 2.7 virtualenv
+      yum:
+        name: python-virtualenv
+        state:  present
  
     - name: Fix legacy Python 2.7.x virtualenv issue
       yum:
