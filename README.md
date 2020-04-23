@@ -55,5 +55,7 @@ Run ldconfig<br/>
 
 `$sudo R -e 'install.packages("PROJ",type="source",configure.args = paste0("--with-gdal-config=","/usr/local/bin/gdal-config"),repos="http://cran.rstudio.com",verbose=T)'`<br/>
 
+`$sudo R -e 'install.packages("sf",type="source",configure.args = paste0("--with-gdal-config=","/usr/local/bin/gdal-config"),repos="http://cran.rstudio.com",verbose=T)'`<br/>
+
 #### Tidyverse
 `$sudo R -e "install.packages('tidyverse',contriburl='http://cran.rstudio.com/', dependencies = TRUE)"`<br/>
