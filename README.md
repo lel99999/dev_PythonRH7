@@ -49,3 +49,11 @@ wget http://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz<br/>
 #### Shared library error
 Add /usr/local/lib to e.g. /etc/ld.so.conf.d/libgdal-x86_64.conf<br/>
 Run ldconfig<br/>
+
+#### R Command Line Install
+`$sudo R -e 'install.packages("rgdal",repos="http://R-Forge.R-project.org")'`<br/>
+
+`$sudo R -e 'install.packages("PROJ",type="source",configure.args = paste0("--with-gdal-config=","/usr/local/bin/gdal-config"),repos="http://cran.rstudio.com",verbose=T)'`<br/>
+
+#### Tidyverse
+`$sudo R -e "install.packages('tidyverse',contriburl='http://cran.rstudio.com/', dependencies = TRUE)"`<br/>
