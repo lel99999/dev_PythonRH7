@@ -63,3 +63,16 @@ Run ldconfig<br/>
 #### RStudio Web App Update
 **Current version running 1.0.143**<br/>
 **EOD runing 1.2.1335**<br/>
+
+#### Upgrading RStudio Server
+1) Check Active Sessions<br/>
+`$sudo rstudio-server active-sessions`<br/>
+2) Suspend Active Sessions<br/>
+`$sudo rstudio-server suspend-all`<br/>
+3) Put old server in offline mode<br/>
+`$sudo rstudio-server offline`<br/>
+4) Install New Server <br/>
+5) Restart the Server.  The new server will start in offline mode <br/>
+`$sudo rstudio-server restart`<br/>
+6) Put the new version online <br/>
+`$sudo rstudio-server online` <br/>
