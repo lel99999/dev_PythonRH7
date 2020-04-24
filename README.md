@@ -79,3 +79,7 @@ Run ldconfig<br/>
 
 #### RStudio Server 1.2.5042
 `$wget https://download2.rstudio.org/server/centos6/x86_64/rstudio-server-rhel-1.2.5042-x86_64.rpm`<br/>
+
+**If process hangs because port is in use, do following:**<br/>
+`$sudo lsof -i tcp:<port>`<br/>
+
