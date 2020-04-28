@@ -22,6 +22,27 @@
     - debug:
         msg: "RHEL Enabled Repos: {{ enabled_repos }}"
   tasks:
+    - name: Install RStudio Server Web Interface (Suspend Active Sessions)
+      shell: rstudio-server suspend-all
+
+    - name: Install RStudio Server Web Interface (Put old server in offline mode)
+      shell: rstudio-server offline
+
+    - name: Install RStudio Server Web Interface (Download v1.2.5403)
+      get_url:
+        url:  https://download2.rstudio.org/server/centos6/x86_64/rstudio-server-rhel-1.2.5042-x86_64.rpm
+        dest: /tmp/rstudio-server-rhel-1.2.5042-x86_64.rpm
+        mode: '0755'
+
+    - name: Install RStudio Server Web Interface (Run Local Install)
+      shell:  yum -y localinstall /tmp/rstudio-server-rhel-1.2.5042-x86_64.rpm --nogpgcheck
+
+    - name: Install RStudio Server Web Interface (Restart Server)
+      shell: rstudio-server restart
+
+    - name: Install RStudio Server Web Interface (Bring RStudio Server Online)
+      shell: rstudio-server online
+
     - name: Install jupyter notebook
       shell:  pip3 install jupyter
 
