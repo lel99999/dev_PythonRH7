@@ -75,6 +75,9 @@ Install dependencies:<br/>
 #### Tidyverse
 `$sudo R -e "install.packages('tidyverse',contriburl='http://cran.rstudio.com/', dependencies = TRUE)"`<br/>
 
+#### Launch RStudio
+` ... QMLSCENE_DEVICE=software rstudio`<br/>
+
 #### RStudio Web App Update
 **Current version running 1.0.143**<br/>
 
