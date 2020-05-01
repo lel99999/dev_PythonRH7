@@ -77,7 +77,6 @@ Install dependencies:<br/>
 
 #### RStudio Web App Update
 **Current version running 1.0.143**<br/>
-**EOD runing 1.2.1335**<br/>
 
 #### Upgrading RStudio Server
 1) Check Active Sessions<br/>
