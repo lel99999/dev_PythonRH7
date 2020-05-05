@@ -104,6 +104,17 @@
         - r
 #     when: install_r_packages and do_r_install_packages
 
+    - name: Install PostGIS on Posgresql
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - geos-devel
+        - proj-devel
+        - gdal-devel
+        - libxml2-devel
+        - json-c-devel
+
   roles:
 #   - epel7
 #   - emacsRH7
