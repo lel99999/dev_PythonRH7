@@ -77,6 +77,10 @@ Install dependencies:<br/>
 
 ![RStudio tidyverse](https://github.com/lel99999/dev_PythonRH7/blob/master/RStudio_tidyverse-01.PNG)
 
+#### Add Openstreetmap
+`$sudo -R -e "install.packages('osmar',contriburl='http://cran.rstudio.com/', dependencies = TRUE)"`<br/>
+`>library("osmar")`<br/>
+
 #### Launch RStudio
 ` ... QMLSCENE_DEVICE=software rstudio`<br/>
 
