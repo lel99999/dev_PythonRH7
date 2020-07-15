@@ -53,6 +53,7 @@ Run ldconfig<br/>
 #### R Command Line Install
 `$sudo R -e 'install.packages("rgdal",repos="http://R-Forge.R-project.org")'`<br/>
 
+Install RPMs (proj, proj-devel,proj-epsg,proj-nad) last 2 contain all of the support files<br/>
 `$sudo R -e 'install.packages("PROJ",type="source",configure.args = paste0("--with-gdal-config=","/usr/local/bin/gdal-config"),repos="http://cran.rstudio.com",verbose=T)'`<br/>
 
 `$sudo R -e 'install.packages("sf",type="source",configure.args = paste0("--with-gdal-config=","/usr/local/bin/gdal-config"),repos="http://cran.rstudio.com",verbose=T)'`<br/>
