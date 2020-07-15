@@ -80,7 +80,7 @@ Install dependencies:<br/>
 #### Add Openstreetmap
 **The osmar package provides infrastructure to access OpenStreetMap data from different sources to work with the data in common R manner**<br/>
 
-`$sudo -R -e "install.packages('osmar',contriburl='http://cran.rstudio.com/', dependencies = TRUE)"`<br/>
+`$sudo R -e "install.packages('osmar',contriburl='http://cran.rstudio.com/', dependencies = TRUE)"`<br/>
 `>library("osmar")`<br/>
 
 #### Launch RStudio
