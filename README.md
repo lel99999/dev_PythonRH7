@@ -109,3 +109,6 @@ Install dependencies:<br/>
 **If process hangs because port is in use, do following:**<br/>
 `$sudo lsof -i tcp:<port>`<br/>
 
+#### Common role Migration
+Resolve systemd commands and handlers for iptables for RHEL7<br/>
+
