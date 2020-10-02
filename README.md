@@ -112,5 +112,5 @@ Install dependencies:<br/>
 #### Common role Migration
 Resolve systemd commands and handlers for iptables for RHEL7<br/>
 
-#### LaTex Review
-Review versions and LaTex implementation details to resolve brittle fixes<br/>
+#### LaTex/TexInfo Review
+Review versions and Texinfo implementation details to resolve brittle fixes<br/>
