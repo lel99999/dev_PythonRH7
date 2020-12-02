@@ -114,3 +114,14 @@ Resolve systemd commands and handlers for iptables for RHEL7<br/>
 
 #### LaTex/TexInfo Review
 Review versions and Texinfo implementation details to resolve brittle fixes<br/>
+
+#### Install Update Rglpk
+```
+$sudo R -e 'install.packages("Rglpk",repos="http://R-Forge.R-project.org")'
+```
+
+Test Within R<br/>
+```
+$R
+>library(Rglpk)
+```
