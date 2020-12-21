@@ -84,6 +84,38 @@ Install dependencies:<br/>
 `$sudo R -e "install.packages('osmar',contriburl='http://cran.rstudio.com/', dependencies = TRUE)"`<br/>
 `>library("osmar")`<br/>
 
+#### Updated OpenStreetMap Fix
+```
+Add SCL devtoolset-8 for latest gcc on RHEL 7
+$sudo yum install devtoolset-8
+$scl list
+$scl enable devtoolset-8 bash
+
+rgdal prerequisites:
+$sudo yum install -y gdal gdal-devel
+$sudo yum install -y proj-devel
+$sudo yum install -y proj-nad
+$sudo yum install -y proj-epsg
+
+$R
+>install.packages("rgdal")
+
+rJava prerequisites:
+$sudo yum install -y gcc-c++ gcc-gfortran R R-core R-core-devel R-devel R-java R-java-devel java-1.8.0-openjdk-devel
+
+Find libjvm.so (/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64/jre/lib/amd64/server/libjvm.so)
+$export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64/jre/lib/amd64/server/
+$R
+>install.packages("rJava")
+
+Once Dependencies are Met (rJava,rgdal)
+>install.packages("OpenStreetMap")
+
+Test Installation:
+>library("OpenStreetMap")
+```
+
+
 #### Launch RStudio
 ` ... QMLSCENE_DEVICE=software rstudio`<br/>
 
