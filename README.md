@@ -87,8 +87,8 @@ Install dependencies:<br/>
 #### Updated OpenStreetMap Fix
 ```
 Add SCL devtoolset-8 for latest gcc on RHEL 7
-$sudo yum install devtoolset-8
-$scl list
+$sudo yum install -y devtoolset-8
+$scl --list
 $scl enable devtoolset-8 bash
 
 rgdal prerequisites:
