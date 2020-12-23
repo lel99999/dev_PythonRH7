@@ -114,7 +114,11 @@ Once Dependencies are Met (rJava,rgdal)
 Test Installation:
 >library("OpenStreetMap")
 ```
-
+#### Test localhost deploy
+```
+Address passing in become/sudo password via prompt
+$ansible-playbook <playbook.yml> -kK
+```
 
 #### Launch RStudio
 ` ... QMLSCENE_DEVICE=software rstudio`<br/>
