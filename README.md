@@ -87,7 +87,7 @@ Install dependencies:<br/>
 #### Updated OpenStreetMap Fix
 ```
 Make sure pre-requisite SCL repo is enabled
-$sudo /usr/bin/subscription-manager repos --enable=rhel-7-server-optional-rpms
+$sudo /usr/bin/subscription-manager repos --enable=rhel-server-rhscl-7-rpms 
 
 Add SCL devtoolset-8 for latest gcc on RHEL 7
 $sudo yum install -y devtoolset-8
