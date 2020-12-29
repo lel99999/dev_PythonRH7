@@ -91,10 +91,10 @@ ERROR: PROJ 6 symbols not found <br/>
 [https://download.osgeo.org/proj/](https://download.osgeo.org/proj/) <br/>
 
 ERROR: SQLITE3 library require => 3.11 <br/>
+FIX: <br/>
 ```
-FIX:
-$locate sqlite
-$export SQLITE3_LIB=$SQLITE3_LIB:/usr/
+$locate sqlite3
+$export SQLITE3_LIBS=$SQLITE3_LIBS:/usr/sqlite330/lib
 ```
 
 #### Updated OpenStreetMap Fix
