@@ -97,6 +97,12 @@ $locate sqlite3
 $export SQLITE3_LIBS=$SQLITE3_LIBS:/usr/sqlite330/lib
 ```
 
+#### Updated Github Install
+```
+$sudo R -e 'devtools::install_github("CRAN/devtools")'
+$sudo R -e 'devtools::install_github("CRAN/OpenStreetMap")'
+```
+
 #### Updated OpenStreetMap Fix
 ```
 Make sure pre-requisite SCL repo is enabled
