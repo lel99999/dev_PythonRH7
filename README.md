@@ -87,6 +87,9 @@ Install dependencies:<br/>
 #### Updated RGDAL Version
 [https://github.com/OSGeo/gdal/releases](https://github.com/OSGeo/gdal/releases) <br/>
 
+Error: PROJ 6 symbols not found <br/>
+[https://download.osgeo.org/proj/](https://download.osgeo.org/proj/) <br/>
+
 #### Updated OpenStreetMap Fix
 ```
 Make sure pre-requisite SCL repo is enabled
