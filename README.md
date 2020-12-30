@@ -84,6 +84,11 @@ Install dependencies:<br/>
 `$sudo R -e "install.packages('osmar',contriburl='http://cran.rstudio.com/', dependencies = TRUE)"`<br/>
 `>library("osmar")`<br/>
 
+#### RGDAL from Source
+[https://github.com/OSGeo/gdal](https://github.com/OSGeo/gdal)
+
+[https://trac.osgeo.org/gdal/wiki/DownloadSource](https://trac.osgeo.org/gdal/wiki/DownloadSource)
+
 #### Updated RGDAL Version
 [https://github.com/OSGeo/gdal/releases](https://github.com/OSGeo/gdal/releases) <br/>
 
