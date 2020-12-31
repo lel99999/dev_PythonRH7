@@ -198,3 +198,8 @@ Test Within R<br/>
 $R
 >library(Rglpk)
 ```
+
+#### Check Upgrade for R
+```
+$sudo yum check-upgrade R
+```
