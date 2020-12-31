@@ -44,7 +44,7 @@ wget http://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz<br/>
 #Compile from source<br/>
 `$./configure --with-libkml`<br/> 
 `$make`<br/>
-`$make install`<br/>
+`$sudo make install`<br/>
 
 #### Shared library error
 Add /usr/local/lib to e.g. /etc/ld.so.conf.d/libgdal-x86_64.conf<br/>
@@ -88,6 +88,16 @@ Install dependencies:<br/>
 [https://github.com/OSGeo/gdal](https://github.com/OSGeo/gdal)
 
 [https://trac.osgeo.org/gdal/wiki/DownloadSource](https://trac.osgeo.org/gdal/wiki/DownloadSource)
+
+##### RGDAL Errors for RHEL 7
+```
+$sudo R -e 'install.packages("rgdal",repo="http://r-forge.r-project.org")'
+or
+In R:
+>install.packages("rgdal",repo="http://http://r-forge.r-project.org")
+```
+Installation of package 'rgdal' had non-zero exit status <br/>
+Fix: check /<path>/gdal23/lib/libgdal.so.20 -> points to correct lib <br/>
 
 #### Updated RGDAL Version
 [https://github.com/OSGeo/gdal/releases](https://github.com/OSGeo/gdal/releases) <br/>
