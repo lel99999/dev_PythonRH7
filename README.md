@@ -111,6 +111,9 @@ FIX: <br/>
 $locate sqlite3
 $export SQLITE3_LIBS=$SQLITE3_LIBS:/usr/sqlite330/lib
 ```
+GDAL Link: <br/>
+[https://github.com/OSGeo/gdal](https://github.com/OSGeo/gdal) <br/>
+
 
 #### Updated Github Install
 ```

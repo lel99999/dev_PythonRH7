@@ -2,7 +2,7 @@
 - name: Make sure latest EPEL repo is installed
   yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    state: latest
+#   state: latest
     disable_gpg_check: yes
 
 #- name: Install postgres repository for 9.4
@@ -10,6 +10,12 @@
 #    name: "(( postgresq94_repository_url }}"
 #    state: present
 #    disable_gpg_check: yes
+
+- name: Add postgres 94 repo for RHEL 7
+  yum_repository:
+    name: postgres94
+    description: postgresql 94 repo for RHEL 7
+    baseurl: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/
 
 - name: Install postgres 9.4 packages on RHEL 7
   yum:
@@ -25,6 +31,13 @@
     - rh-postgresql94-postgresql-plpython
     - rh-postgresql94-postgresql-contrib
 
+- name: Install postgres 9.6 repo
+  yum_repository:
+    name: postgresql9.6
+    description: postgresql 9.6 repo
+    baseurl: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7.9-x86_64/
+    gpgcheck: no
+
 - name: Install postgres 9.6 packages on RHEL 7
   yum:
     name: "{{ item }}"
@@ -36,7 +49,14 @@
     - postgresql96-docs
     - postgresql96-contrib
 
-- name: Install postgres 9.6 packages on RHEL 7
+- name: Install postgres 10.x repo
+  yum_repository:
+    name: postgresql10.x
+    description: postgresql 10.x repo
+    baseurl: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/
+    gpgcheck: no
+
+- name: Install postgres 10.x packages on RHEL 7
   yum:
     name: "{{ item }}"
     state: present
@@ -76,21 +96,21 @@
   tags:
     - postgres_client
 
-- name: Add 94 yum repo
-  yum_repository:
-    name: postgres94
-    description: postgresql 94 repo for RHEL 7
-    baseurl: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/
+#- name: Add Postgres 94 repo
+# yum_repository:
+#   name: postgres94
+#   description: postgresql 94 repo for RHEL 7
+#   baseurl: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/
 
-- name: Install postgres packages
-  yum:
-    name: "{{ item }}"
-    state: present
+#- name: Install postgres packages
+# yum:
+#   name: "{{ item }}"
+#   state: present
 #   state: latest
-    disable_gpg_check: yes
-  with_items: "{{ postgres_packages }}"
-  tags:
-    - postgres_client
+#   disable_gpg_check: yes
+# with_items: "{{ postgres_packages }}"
+# tags:
+#   - postgres_client
 
 - name: Install gis postgres packages
   yum:
@@ -127,6 +147,7 @@
     src: "{{ postgres_install_dir }}/lib"
     dest: /usr/lib/pgsql
     state: link
+    force: yes
   tags:
     - postgres_client
   when: lpgsqllib.stat.exists == false
