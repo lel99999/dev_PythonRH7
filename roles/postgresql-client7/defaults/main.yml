@@ -16,18 +16,23 @@ postgres_install_repository: True
 postgres_packages:
   - postgresql10
   - postgresql10-devel
+  - postgresql10-odbc
 
 postgres_gis_packages:
-  - postgis24_10
+  - postgis25_10
+  - postgis25_10-client
+  - postgis25_10-devel
+  - postgis25_10-utils
+  - postgis25_10-gui
 
 postgres_old_packages:
   - rh-postgresql96
   - rh-postgresql96-postgresql-libs
   - postgresql-odbc
-# - postgresql96
-# - postgresql96-libs
-# - postgresql96-odbc
-# - postgis22
+  - postgresql96
+  - postgresql96-libs
+  - postgresql96-odbc
+  - postgis22
   - postgis24_96
 
 clean_postgresql: False
