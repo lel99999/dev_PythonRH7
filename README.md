@@ -216,3 +216,13 @@ $sudo yum whatprovides '*/package_name.sty'
 ```
 $sudo yum install texlive-multirow*
 ```
+
+#### Test haven::read_dta() which is a library for R to read Stata files
+```
+>library(haven)
+>url <- "http://www.principlesofeconometrics.com/stata/broiler.dta"
+>
+>data.df <- read_dta(url)
+>head(data.df)
+```
+
